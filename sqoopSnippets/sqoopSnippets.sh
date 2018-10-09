@@ -14,3 +14,6 @@ sqoop-1.4.jar
 vertica-jdk.jar
 
 #https://www.programcreek.com/java-api-examples/?api=com.cloudera.sqoop.tool.SqoopTool
+
+## UDF
+https://github.com/manojkumarvohra/hive-hilo
