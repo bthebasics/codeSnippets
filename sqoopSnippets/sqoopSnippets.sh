@@ -12,3 +12,5 @@ jackson-mapper-asl.jar
 log4j.jar
 sqoop-1.4.jar
 vertica-jdk.jar
+
+#https://www.programcreek.com/java-api-examples/?api=com.cloudera.sqoop.tool.SqoopTool
