@@ -10,3 +10,13 @@ hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar \
                    -mapper cat \
                    -reducer cat
 # ref : https://stackoverflow.com/questions/39103872/merging-small-files-in-hadoop
+
+## hadoop FSCK command
+
+hdfs fsck <path>
+        [-list-corruptfileblocks |
+        [-move | -delete | -openforwrite]
+        [-files [-blocks [-locations | -racks]]]
+        [-includeSnapshots]
+
+# ref : https://hadoop.apache.org/docs/r2.7.1/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html
