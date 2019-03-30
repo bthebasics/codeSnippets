@@ -1,0 +1,121 @@
+# https://www.youtube.com/watch?v=QjICgmk31js
+
+c:\sqlite3
+λ sqlite3 test.db
+SQLite version 3.27.2 2019-02-25 16:06:06
+Enter ".help" for usage hints.
+sqlite> create table employees ( id integer primary key, name text );
+sqlite> insert into employees( id, name ) values ( 1, 'Max Eisenhardt');
+sqlite>  insert into employees(name) values ( ' p1');
+sqlite>  insert into employees(name) values ( ' p2');
+sqlite> select * from employess;
+Error: no such table: employess
+sqlite> .mode column
+sqlite> .headers
+Usage: .headers on|off
+sqlite> .headers on
+sqlite> select * from employess;
+Error: no such table: employess
+sqlite> select * from employees;
+id          name
+----------  --------------
+1           Max Eisenhardt
+2            p1
+3            p2
+sqlite> .width 15 20
+sqlite> select * from employees;
+id               name
+---------------  --------------------
+1                Max Eisenhardt
+2                 p1
+3                 p2
+sqlite> clear
+sqlite> clear
+   ...> ;
+Error: near "clear": syntax error
+sqlite> .mode line
+sqlite> select * from employees;
+   id = 1
+ name = Max Eisenhardt
+
+   id = 2
+ name =  p1
+
+   id = 3
+ name =  p2
+sqlite> .schema
+CREATE TABLE employees ( id integer primary key, name text );
+sqlite> .schema employees;
+sqlite> .schema employees
+CREATE TABLE employees ( id integer primary key, name text );
+sqlite> .mode column
+sqlite> .headers on
+sqlite> select type, name, tbl_name, sql from sqlite_master order by type;
+type             name                  tbl_name    sql
+---------------  --------------------  ----------  ------------------------------------------------------------
+table            employees             employees   CREATE TABLE employees ( id integer primary key, name text )
+sqlite> .show
+        echo: off
+         eqp: off
+     explain: auto
+     headers: on
+        mode: column
+   nullvalue: ""
+      output: stdout
+colseparator: "|"
+rowseparator: "\n"
+       stats: off
+       width: 15 20
+    filename: test.db
+sqlite> .nullvalue 'NULL'
+sqlite>
+sqlite> .nullvalue 'NULL'
+sqlite> .dump
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE employees ( id integer primary key, name text );
+INSERT INTO employees VALUES(1,'Max Eisenhardt');
+INSERT INTO employees VALUES(2,' p1');
+INSERT INTO employees VALUES(3,' p2');
+
+sqlite> .output sqlite3.sql
+sqlite> .dump
+sqlite> .output stdout
+sqlite> drop table employees;
+sqlite> ^D
+   ...>sqlite> .mode insert
+sqlite> select * from employees;
+INSERT INTO "table" VALUES(1,'Max Eisenhardt');
+INSERT INTO "table" VALUES(2,' p1');
+INSERT INTO "table" VALUES(3,' p2');
+sqlite> .mode list
+sqlite> select * from employees;
+1|Max Eisenhardt
+2| p1
+3| p2
+sqlite> .mode tabs
+sqlite> select * from employees;
+1       Max Eisenhardt
+2        p1
+3        p2
+sqlite> .mode csv
+sqlite> .seperator |
+.help
+
+sqlite> .mode html                             
+sqlite> select * from employees;               
+<TR><TD>1</TD>                                 
+<TD>Max Eisenhardt</TD>                        
+</TR>                                          
+<TR><TD>2</TD>                                 
+<TD> p1</TD>                                   
+</TR>                                          
+<TR><TD>3</TD>                                 
+<TD> p2</TD>                                   
+</TR>                                          
+sqlite> .mode line                             
+sqlite> .mode tcl                              
+sqlite> select * from employees;               
+"1" "Max Eisenhardt"                           
+"2" " p1"                                      
+"3" " p2"                                      
